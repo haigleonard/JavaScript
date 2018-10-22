@@ -1,4 +1,4 @@
-td{
+.Board td{
     border: 1px solid #333;
     height:0px;
     width:0px;
@@ -7,17 +7,23 @@ td{
     font-family: "Comic Sans MS", cursive;
     font-size: 0px;
     cursor:pointer;
-    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/USS_Texas_BB-35.jpg/220px-USS_Texas_BB-35.jpg"      
 }
 
-table{
-    border-collapse: collapse;
-    position:absolute;
-    padding-top:100px;
+.Board table{
+    padding-left:10px;
 }
-
+.Ships p{
+    padding-top: 0px;
+}
 img {
-    
     width: 50px;
 }
 
+Start{
+    position:relative;
+}
+
+Start button{
+    position:absolute;
+    padding-top: 850px;
+}
