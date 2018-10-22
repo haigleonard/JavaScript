@@ -1,4 +1,5 @@
 var ships = [2,3,3,4,5]
+var ships2 = [2,3,3,4,5]
 var Cruiser = 0;
 var board; 
 var board2;
@@ -42,8 +43,8 @@ function setBoard(p)
     var conflict = 0;
     if(VH == 1){
         while(conflict == 0){
-            var x = Math.floor((Math.random() * (10-i)) + 0);
-            var y = Math.floor((Math.random() * 10) + 0);
+            var x = Math.floor(Math.random() * (10-i));
+            var y = Math.floor(Math.random() * 10);
             if(checkSpace(x,y,i,1,p) == 1){
                 setShip(x,y,1,i,p);
                 conflict = 1;
@@ -51,8 +52,8 @@ function setBoard(p)
         }
     }else{
         while(conflict == 0){
-            var x = Math.floor((Math.random() * 10) + 0);
-            var y = Math.floor((Math.random() * (10-i)) + 0);
+            var x = Math.floor(Math.random() * 10);
+            var y = Math.floor(Math.random() * (10-i));
             if(checkSpace(x,y,i,0,p) == 1){
                 setShip(x,y,0, i,p);
                 conflict = 1;
@@ -78,6 +79,19 @@ function startGame(){
             document.getElementById(i+100).src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSogxnxY2Ex5e_llvum12-RCGUijfI1GrDEW3SlS9QXEOPwjX4Q1g";
         }
     }
+}
+function AI()
+{
+    var x = Math.floor(Math.random() * 10);
+    var y = Math.floor(Math.random() * 10);
+    document.getElementById(((x*10)+y)+100).src = "";
+    if(board[x][y] == 2){ships2[0]--;}
+    if(board[x][y] == 31){ships2[1]--;}
+    if(board[x][y] == 32){ships2[2]--;}
+    if(board[x][y] == 4){ships2[3]--;}
+    if(board[x][y] == 5){ships2[4]--;}
+    document.getElementById("p2").innerHTML = "Submarine: " + ships2[0] + " Destroyer: " + ships2[1]+ " Cruiser: " + ships2[2]+ " Battleship: " + ships2[3]+ " Aircraft Carrier: " + ships2[4];
+    
 }
 function turnClick(square)
 {
@@ -113,5 +127,6 @@ function turnClick(square)
     if(ships[0] == 0 && ships[1] == 0 && ships[2] == 0 && ships[3] == 0 && ships[4] == 0)
     {
         document.getElementById("p1").innerHTML = "You Win!"; 
-    }    
+    }   
+    AI();
 }
